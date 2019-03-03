@@ -4694,6 +4694,25 @@ BJT configuration in SOT23 package. MMBT2222 is the common NPN we use. Double ch
 <text x="-3.4925" y="0" size="0.6096" layer="25" font="vector" ratio="20" rot="R90" align="bottom-center">&gt;NAME</text>
 <text x="3.4925" y="-0.127" size="0.6096" layer="27" font="vector" ratio="20" rot="R90" align="top-center">&gt;VALUE</text>
 </package>
+<package name="DO-214AC">
+<description>&lt;b&gt;SURFACE MOUNT GENERAL RECTIFIER&lt;/b&gt; JEDEC DO-214AC molded platic body&lt;p&gt;
+Method 2026&lt;br&gt;
+Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
+<wire x1="-2.15" y1="1.3" x2="2.15" y2="1.3" width="0.2032" layer="51"/>
+<wire x1="2.15" y1="1.3" x2="2.15" y2="-1.3" width="0.2032" layer="51"/>
+<wire x1="2.15" y1="-1.3" x2="-2.15" y2="-1.3" width="0.2032" layer="51"/>
+<wire x1="-2.15" y1="-1.3" x2="-2.15" y2="1.3" width="0.2032" layer="51"/>
+<wire x1="-1.035" y1="1.3" x2="1.025" y2="1.3" width="0.2032" layer="21"/>
+<wire x1="1.025" y1="-1.3" x2="-1.035" y2="-1.3" width="0.2032" layer="21"/>
+<smd name="C" x="-2.025" y="0" dx="1.8" dy="2.4" layer="1"/>
+<smd name="A" x="2.025" y="0" dx="1.8" dy="2.4" layer="1" rot="R180"/>
+<text x="-2.54" y="1.905" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.54" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-2.825" y1="-1.1" x2="-2.175" y2="1.1" layer="51"/>
+<rectangle x1="2.175" y1="-1.1" x2="2.825" y2="1.1" layer="51" rot="R180"/>
+<rectangle x1="-1.065" y1="-1.225" x2="-0.39" y2="1.225" layer="21"/>
+<rectangle x1="-1.75" y1="-1.225" x2="-1.075" y2="1.225" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="2X06">
@@ -4766,6 +4785,26 @@ BJT configuration in SOT23 package. MMBT2222 is the common NPN we use. Double ch
 <pin name="OUT" x="-5.08" y="0" visible="pin" length="middle" direction="pas"/>
 <text x="-2.54" y="6.096" size="1.778" layer="95">&gt;NAME</text>
 <pin name="GND" x="-5.08" y="-2.54" visible="pin" length="middle" direction="pas"/>
+</symbol>
+<symbol name="DIODE-SCHOTTKY">
+<description>&lt;h3&gt; Schottky Diode&lt;/h3&gt;
+Diode with low voltage drop</description>
+<wire x1="1.27" y1="1.27" x2="1.27" y2="0" width="0.1524" layer="94"/>
+<wire x1="1.27" y1="0" x2="1.27" y2="-1.27" width="0.1524" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="1.778" y2="1.27" width="0.1524" layer="94"/>
+<wire x1="1.27" y1="-1.27" x2="0.762" y2="-1.27" width="0.1524" layer="94"/>
+<text x="-2.54" y="2.032" size="1.778" layer="95" font="vector">&gt;NAME</text>
+<pin name="A" x="-2.54" y="0" visible="off" length="point" direction="pas"/>
+<pin name="C" x="2.54" y="0" visible="off" length="point" direction="pas" rot="R180"/>
+<wire x1="-2.54" y1="0" x2="-1.27" y2="0" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="0" x2="1.27" y2="0" width="0.1524" layer="94"/>
+<wire x1="0.762" y1="-1.27" x2="0.762" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="1.778" y1="1.27" x2="1.778" y2="1.016" width="0.1524" layer="94"/>
+<polygon width="0.1524" layer="94">
+<vertex x="-1.27" y="1.27"/>
+<vertex x="1.27" y="0"/>
+<vertex x="-1.27" y="-1.27"/>
+</polygon>
 </symbol>
 </symbols>
 <devicesets>
@@ -4862,6 +4901,22 @@ BJT configuration in SOT23 package. MMBT2222 is the common NPN we use. Double ch
 <connect gate="G$1" pin="GND" pad="2 4"/>
 <connect gate="G$1" pin="IN" pad="1"/>
 <connect gate="G$1" pin="OUT" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SMAJ5.0CALFDKR-ND" prefix="D">
+<gates>
+<gate name="G$1" symbol="DIODE-SCHOTTKY" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="DO-214AC">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -5041,7 +5096,6 @@ BJT configuration in SOT23 package. MMBT2222 is the common NPN we use. Double ch
 <part name="U$22" library="microbuilder" deviceset="VBAT" device=""/>
 <part name="Q3" library="transistor" deviceset="*-PNP_DRIVER-" device="SC59-BEC" technology="MUN2114T1" value="MMUN2133LT1G"/>
 <part name="J3" library="HFS4011sCustom" deviceset="1X02" device=""/>
-<part name="U$16" library="microbuilder" deviceset="GND" device=""/>
 <part name="U3" library="HFS4011sCustom" deviceset="LM3940" device=""/>
 <part name="U$23" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$25" library="microbuilder" deviceset="5.0V" device=""/>
@@ -5050,6 +5104,8 @@ BJT configuration in SOT23 package. MMBT2222 is the common NPN we use. Double ch
 <part name="U$29" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$30" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$35" library="microbuilder" deviceset="3.3V" device=""/>
+<part name="D1" library="HFS4011sCustom" deviceset="SMAJ5.0CALFDKR-ND" device=""/>
+<part name="U$16" library="microbuilder" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5134,8 +5190,8 @@ R3 = 1.85Mohm</text>
 <instance part="U$4" gate="G$1" x="180.34" y="22.86"/>
 <instance part="C1" gate="G$1" x="154.94" y="53.34"/>
 <instance part="U$6" gate="G$1" x="154.94" y="45.72"/>
-<instance part="B1" gate="G$1" x="139.7" y="53.34" rot="R90"/>
-<instance part="U$7" gate="G$1" x="139.7" y="45.72"/>
+<instance part="B1" gate="G$1" x="129.54" y="53.34" rot="R90"/>
+<instance part="U$7" gate="G$1" x="129.54" y="45.72"/>
 <instance part="C3" gate="G$1" x="223.52" y="58.42"/>
 <instance part="U$9" gate="G$1" x="241.3" y="88.9"/>
 <instance part="U$19" gate="G$1" x="154.94" y="71.12"/>
@@ -5162,8 +5218,7 @@ R3 = 1.85Mohm</text>
 <attribute name="NAME" x="259.08" y="43.18" size="1.778" layer="95"/>
 <attribute name="VALUE" x="259.08" y="40.64" size="1.778" layer="96"/>
 </instance>
-<instance part="J3" gate="G$1" x="203.2" y="96.52"/>
-<instance part="U$16" gate="G$1" x="193.04" y="91.44"/>
+<instance part="J3" gate="G$1" x="137.16" y="66.04" rot="R90"/>
 <instance part="U3" gate="G$1" x="294.64" y="83.82"/>
 <instance part="U$23" gate="G$1" x="289.56" y="76.2"/>
 <instance part="U$25" gate="G$1" x="276.86" y="101.6"/>
@@ -5172,6 +5227,8 @@ R3 = 1.85Mohm</text>
 <instance part="U$29" gate="G$1" x="276.86" y="78.74"/>
 <instance part="U$30" gate="G$1" x="284.48" y="68.58"/>
 <instance part="U$35" gate="G$1" x="284.48" y="88.9"/>
+<instance part="D1" gate="G$1" x="142.24" y="55.88" rot="R90"/>
+<instance part="U$16" gate="G$1" x="142.24" y="45.72"/>
 </instances>
 <busses>
 </busses>
@@ -5263,7 +5320,7 @@ R3 = 1.85Mohm</text>
 <segment>
 <pinref part="B1" gate="G$1" pin="-"/>
 <pinref part="U$7" gate="G$1" pin="GND"/>
-<wire x1="139.7" y1="50.8" x2="139.7" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="50.8" x2="129.54" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$10" gate="G$1" pin="GND"/>
@@ -5303,12 +5360,6 @@ R3 = 1.85Mohm</text>
 <pinref part="U$21" gate="G$1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="J3" gate="G$1" pin="2"/>
-<wire x1="198.12" y1="96.52" x2="193.04" y2="96.52" width="0.1524" layer="91"/>
-<pinref part="U$16" gate="G$1" pin="GND"/>
-<wire x1="193.04" y1="93.98" x2="193.04" y2="96.52" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="C8" gate="G$1" pin="2"/>
 <pinref part="U$29" gate="G$1" pin="GND"/>
 <wire x1="276.86" y1="83.82" x2="276.86" y2="81.28" width="0.1524" layer="91"/>
@@ -5322,6 +5373,11 @@ R3 = 1.85Mohm</text>
 <pinref part="U$30" gate="G$1" pin="GND"/>
 <pinref part="C9" gate="G$1" pin="2"/>
 <wire x1="284.48" y1="71.12" x2="284.48" y2="73.66" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="D1" gate="G$1" pin="A"/>
+<pinref part="U$16" gate="G$1" pin="GND"/>
+<wire x1="142.24" y1="53.34" x2="142.24" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VBUS" class="0">
@@ -5383,9 +5439,12 @@ R3 = 1.85Mohm</text>
 <pinref part="C5" gate="G$1" pin="1"/>
 <pinref part="R12" gate="G$1" pin="2"/>
 <junction x="170.18" y="60.96"/>
-<pinref part="B1" gate="G$1" pin="+"/>
-<wire x1="139.7" y1="60.96" x2="139.7" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="60.96" x2="154.94" y2="60.96" width="0.1524" layer="91"/>
+<pinref part="J3" gate="G$1" pin="2"/>
+<pinref part="D1" gate="G$1" pin="C"/>
+<wire x1="137.16" y1="60.96" x2="142.24" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="60.96" x2="142.24" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="60.96" x2="154.94" y2="60.96" width="0.1524" layer="91"/>
+<junction x="142.24" y="60.96"/>
 </segment>
 <segment>
 <wire x1="256.54" y1="48.26" x2="256.54" y2="50.8" width="0.1524" layer="91"/>
@@ -5844,11 +5903,6 @@ R3 = 1.85Mohm</text>
 <wire x1="187.96" y1="58.42" x2="175.26" y2="58.42" width="0.1524" layer="91"/>
 <label x="175.26" y="58.42" size="1.778" layer="95"/>
 </segment>
-<segment>
-<pinref part="J3" gate="G$1" pin="1"/>
-<wire x1="198.12" y1="99.06" x2="187.96" y2="99.06" width="0.1524" layer="91"/>
-<label x="187.96" y="99.06" size="1.778" layer="95"/>
-</segment>
 </net>
 <net name="N$11" class="0">
 <segment>
@@ -5880,6 +5934,14 @@ R3 = 1.85Mohm</text>
 <segment>
 <pinref part="R20" gate="G$1" pin="2"/>
 <pinref part="Q3" gate="G$1" pin="C"/>
+</segment>
+</net>
+<net name="N$16" class="0">
+<segment>
+<pinref part="B1" gate="G$1" pin="+"/>
+<wire x1="129.54" y1="60.96" x2="129.54" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="J3" gate="G$1" pin="1"/>
+<wire x1="129.54" y1="60.96" x2="134.62" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
