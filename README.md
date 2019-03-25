@@ -12,7 +12,7 @@ Tutorials:
 
 [Advanced layout](https://learn.sparkfun.com/tutorials/designing-pcbs-advanced-smd)
 
-====
+### Useful links
 The ESP32 and USB design follows the same format as the
 [HUZZAH32 ESP32 Feather](https://github.com/adafruit/Adafruit-HUZZAH32-ESP32-Feather-PCB),
 so check out their [documentation](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/overview)
