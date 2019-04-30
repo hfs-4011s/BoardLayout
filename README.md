@@ -39,21 +39,21 @@ received music to an analog signal to send over to an FPAA or speakers.
 
 There are also a few onboard LEDs for debugging and status verification.
 
-* LED1 is green if the battery is fully charged
-* LED2 is orange if the battery is currently charging
-* PWR is a power indicator LED and is blue if 5V is output from the regulator.
-* LBO is a battery status indicator LED and is red if the battery is discharged.
-* D2 is a red LED connected to GPIO13 meant for debugging.
+* `LED1` is green if the battery is fully charged
+* `LED2` is orange if the battery is currently charging
+* `PWR` is a power indicator LED and is blue if 5V is output from the regulator
+* `LBO` is a battery status indicator LED and is red if the battery is discharged
+* `D2` is a red LED connected to GPIO13 meant for debugging
 
 Even with solder paste, this board can be hard to assemble by hand. We ran into
 a lot of problems regarding unintended shorts from the reflow process. If removing
 the USB-UART bridge is necessary, the ESP32 can be programmed normally through
-pins 34 and 35 (u0RXD and u0TXD respectively), but when you get to the
+pins 34 and 35 (`u0RXD` and `u0TXD` respectively), but when you get to the
 `Connecting...` stage, make sure the following protocol is followed:
 
-* Short GPIO2 and GPIO0 to ground.
-* Press the RESET button (SW1), which is connected to the ESP32 EN pin, to
-momentarily reset the microcontroller. Pressing SW1 shorts the EN pin to ground,
+* Short `GPIO2` and `GPIO0` to ground.
+* Press the RESET button (`SW1`), which is connected to the ESP32 `EN` pin, to
+momentarily reset the microcontroller. Pressing `SW1` shorts the `EN` pin to ground,
 so this can be done manually as well.
 
 After a couple of moments, the ESP32 should be flashed. The RESET button needs
