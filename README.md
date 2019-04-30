@@ -43,7 +43,7 @@ There are also a few onboard LEDs for debugging and status verification.
 * `LED2` is orange if the battery is currently charging
 * `PWR` is a power indicator LED and is blue if 5V is output from the regulator
 * `LBO` is a battery status indicator LED and is red if the battery is discharged
-* `D2` is a red LED connected to GPIO13 meant for debugging
+* `D2` is a red LED connected to `GPIO13` meant for debugging
 
 Even with solder paste, this board can be hard to assemble by hand. We ran into
 a lot of problems regarding unintended shorts from the reflow process. If removing
